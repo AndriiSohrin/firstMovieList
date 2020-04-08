@@ -1,0 +1,32 @@
+
+.sort {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    top: 290%;
+    height: 502px;
+
+}
+.menu-down{
+    background-color: #bee5eb;
+    width: 150px;
+    height: 300px;
+    overflow: scroll;
+    overflow-style: marquee-block;
+}
+
+.menu-down-item:hover{
+    background-color: darkcyan;
+    cursor: pointer;
+}
+
+.btn-sort {
+    width: 150px;
+    height: 38px;
+
+}
+
+
+/*.sort-menu {*/
+/*    background-color: #bee5eb;*/
+/*}*/

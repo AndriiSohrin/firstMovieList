@@ -1,0 +1,21 @@
+.toggle-block {
+    width: 60px;
+    height: 30px;
+    border-radius: 35%;
+    display: flex;
+    border: 1px solid black;
+    align-items: center;
+}
+
+.toggle-active {
+    justify-content: flex-end;
+}
+
+.toggle {
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    background: black;
+
+}
+

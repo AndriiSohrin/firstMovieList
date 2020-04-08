@@ -1,0 +1,37 @@
+.moviePage{
+    display: flex;
+   flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 100px 50px;
+    background-color: lightgray;
+
+}
+
+.moviePage2{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 100px 50px;
+    background-color: #555555;
+}
+
+.text-card{
+    overflow: hidden;
+}
+
+.card-img:hover{
+    opacity: 0.5;
+}
+
+.paginationPoint{
+    margin: 5px 5px;
+    cursor: pointer;
+
+}
+.paginationPoint:hover{
+   font-weight: bold;
+}
+
+.block-pagination{
+    padding-bottom: 50px;
+}
