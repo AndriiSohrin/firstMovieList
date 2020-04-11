@@ -4,6 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import {connect} from "react-redux";
 import './MovieList.css'
 import {ToggleThemeWithRedux} from "../togglrTheme/ToggleTheme";
+import {CHANGE_CURRENT_PAGE, GET_MOVIE} from "../../ActionTypes/ActionTypes";
+import {changeCurrentPage} from "../../ActionCreators/ActionCreators";
 
 
 const MoviesList = ({movieList, getMovie, currentPage, changeCurrentPage,changeTheme}) => {
@@ -43,7 +45,7 @@ const getMovie = (currentPage) => (dispatch) => {
     return (
         fetch(`https://api.themoviedb.org/3/discover/movie?api_key=19eec3c1db6bc640e4777bf74bacacb0&page=${currentPage}`)
             .then(resolve => resolve.json())
-            .then(json => dispatch({type: 'GET_MOVIE', payload: json}))
+            .then(json => dispatch({type: GET_MOVIE, payload: json}))
     )
 };
 
@@ -58,7 +60,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         getMovie: (currentPage) => dispatch(getMovie(currentPage)),
-        changeCurrentPage: (id) => dispatch({type: 'CHANGE_CURRENT_PAGE', payload: id})
+        changeCurrentPage: (id) => dispatch(changeCurrentPage(id))
     }
 };
 

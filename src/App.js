@@ -1,14 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import logo from './logo.svg';
 import './App.css';
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {HeaderWithRedux} from "./Components/Header/Header";
-
 import {MoviesListWithRedux} from "./Components/MoviesLis/MoviesLis";
 import {Provider} from "react-redux";
 import {store} from "../src/Store/Store";
-import {ThemeContext} from "./Context/context";
+
 
 
 const Movie = () => {
@@ -18,7 +16,7 @@ const Movie = () => {
             .then(resolve => resolve.json())
             .then(json => setMovie(json))
     }, []);
-    console.log(movie.results)
+    console.log(movie.results);
     return (
         <div>
             {movie.results && movie.results.map(el => <div key={el.id}>{el.id} <img
@@ -31,7 +29,6 @@ const Movie = () => {
 function App() {
     return (
         <Provider store={store}>
-
             <div className="App">
                 <HeaderWithRedux/>
                 <div className='main'>

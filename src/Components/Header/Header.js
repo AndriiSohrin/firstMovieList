@@ -2,7 +2,8 @@ import React, {useState} from "react";
 import {BtnWithSortMenuWithRedux} from "../btnWithSortMenu/btnWithSortMenu";
 import './header.css'
 import {connect} from "react-redux";
-
+import {CHANGE_MAIN_INPUT, MOVIE_SEARCH} from "../../ActionTypes/ActionTypes";
+import {movieSearch, onChangeMainInputAC} from "../../ActionCreators/ActionCreators";
 
 
 const Logo = () => {
@@ -15,20 +16,18 @@ const Logo = () => {
 };
 
 
+const Header = ({valueMainInput, onChangeMainInput, movieSearch, changeTheme}) => {
 
 
-const Header = ({valueMainInput,onChangeMainInput,movieSearch,changeTheme}) => {
-
-
-    const change = (e) =>{
+    const change = (e) => {
         onChangeMainInput(e.target.value)
-   };
+    };
 
     return (
-        <div className={`header col-12 position-fixed ${!changeTheme?'header':'header2'}`}>
-          <div>
-              <Logo/>
-          </div>
+        <div className={`header col-12 position-fixed ${!changeTheme ? 'header' : 'header2'}`}>
+            <div>
+                <Logo/>
+            </div>
             <div className="input-group col-8">
                 <div className="input-group-prepend" onClick={movieSearch}>
                     <span className="input-group-text" id="inputGroup-sizing-default">Поиск</span>
@@ -48,8 +47,6 @@ const Header = ({valueMainInput,onChangeMainInput,movieSearch,changeTheme}) => {
 };
 
 
-
-
 const mapStateToProps = (state) => {
     return {
         valueMainInput: state.movieListReducer.valueMainInput,
@@ -57,13 +54,13 @@ const mapStateToProps = (state) => {
     }
 };
 
-const mapDispatchToProps = (dispatch)=>{
-  return{
-      onChangeMainInput:(value)=>dispatch({type:'CHANGE_MAIN_INPUT',payload:value}),
-      movieSearch:()=>dispatch({type:'MOVIE_SEARCH'}),
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onChangeMainInput: (value) => dispatch(onChangeMainInputAC(value)),
+        movieSearch: () => dispatch(movieSearch()),
 
-  }
+    }
 };
 
 
-export const HeaderWithRedux = connect(mapStateToProps,mapDispatchToProps)(Header);
+export const HeaderWithRedux = connect(mapStateToProps, mapDispatchToProps)(Header);

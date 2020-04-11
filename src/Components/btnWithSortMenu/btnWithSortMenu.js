@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from "react";
 import {connect} from "react-redux";
 import './btnWithSortMenu.css'
+import {GENRES_SORT, GET_GENRES} from "../../ActionTypes/ActionTypes";
+import {onClickGenresAC} from "../../ActionCreators/ActionCreators";
 
 
  const BtnWithSortMenu = ({genresList, getGenres,onClickGenres}) => {
@@ -30,7 +32,7 @@ const getGenres = () => (dispatch) => {
     return (
         fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=19eec3c1db6bc640e4777bf74bacacb0`)
             .then(resolve => resolve.json())
-            .then(json => dispatch({type: 'GET_GENRES', payload: json}))
+            .then(json => dispatch({type: GET_GENRES, payload: json}))
     )
 };
 
@@ -43,7 +45,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         getGenres: () => dispatch(getGenres()),
-        onClickGenres:(id) => dispatch({type:'GENRES_SORT', payload:id })
+        onClickGenres:(id) => dispatch(onClickGenresAC(id))
     }
 };
 

@@ -7,6 +7,10 @@
     align-items: center;
 }
 
+.toggle-block:hover{
+    cursor: pointer;
+}
+
 .toggle-active {
     justify-content: flex-end;
 }
