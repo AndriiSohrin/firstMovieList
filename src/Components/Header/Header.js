@@ -5,24 +5,17 @@ import {connect} from "react-redux";
 import {CHANGE_MAIN_INPUT, MOVIE_SEARCH} from "../../ActionTypes/ActionTypes";
 import {movieSearch, onChangeMainInputAC} from "../../ActionCreators/ActionCreators";
 
-
 const Logo = () => {
-
     return (
         <div className='col-2'>
             <img src='https://cdn.worldvectorlogo.com/logos/brothers-photography.svg' alt="#" style={{width: 200}}/>
         </div>
     )
 };
-
-
 const Header = ({valueMainInput, onChangeMainInput, movieSearch, changeTheme}) => {
-
-
     const change = (e) => {
         onChangeMainInput(e.target.value)
     };
-
     return (
         <div className={`header col-12 position-fixed ${!changeTheme ? 'header' : 'header2'}`}>
             <div>
@@ -45,15 +38,12 @@ const Header = ({valueMainInput, onChangeMainInput, movieSearch, changeTheme}) =
         </div>
     )
 };
-
-
 const mapStateToProps = (state) => {
     return {
         valueMainInput: state.movieListReducer.valueMainInput,
         changeTheme: state.movieListReducer.changeTheme
     }
 };
-
 const mapDispatchToProps = (dispatch) => {
     return {
         onChangeMainInput: (value) => dispatch(onChangeMainInputAC(value)),
@@ -61,6 +51,5 @@ const mapDispatchToProps = (dispatch) => {
 
     }
 };
-
 
 export const HeaderWithRedux = connect(mapStateToProps, mapDispatchToProps)(Header);

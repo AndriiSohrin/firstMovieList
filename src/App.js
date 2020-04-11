@@ -7,8 +7,6 @@ import {MoviesListWithRedux} from "./Components/MoviesLis/MoviesLis";
 import {Provider} from "react-redux";
 import {store} from "../src/Store/Store";
 
-
-
 const Movie = () => {
     const [movie, setMovie] = useState([]);
     useEffect(() => {
@@ -24,7 +22,6 @@ const Movie = () => {
         </div>
     )
 };
-
 
 function App() {
     return (
