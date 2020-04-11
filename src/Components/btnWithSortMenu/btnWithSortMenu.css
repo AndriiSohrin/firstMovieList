@@ -4,7 +4,7 @@
     flex-wrap: wrap;
     flex-direction: column;
     top: 290%;
-    height: 502px;
+    /*height: 502px;*/
 
 }
 .menu-down{
@@ -13,16 +13,20 @@
     height: 300px;
     overflow: scroll;
     overflow-style: marquee-block;
+    position: fixed;
+    top: 11%;
 }
 
 .menu-down-item:hover{
     background-color: darkcyan;
     cursor: pointer;
+
 }
 
 .btn-sort {
     width: 150px;
     height: 38px;
+    position: relative;
 
 }
 

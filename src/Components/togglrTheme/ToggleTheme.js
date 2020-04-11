@@ -1,7 +1,6 @@
 import React from "react";
 import './ToggleTheme.css'
 import {connect} from "react-redux";
-import {CHANGE_THEME} from "../../ActionTypes/ActionTypes";
 import {onChangeTheme} from "../../ActionCreators/ActionCreators";
 
 const ToggleTheme = ({changeTheme,onChangeTheme}) => {

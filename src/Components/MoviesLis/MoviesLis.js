@@ -4,26 +4,26 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import {connect} from "react-redux";
 import './MovieList.css'
 import {ToggleThemeWithRedux} from "../togglrTheme/ToggleTheme";
-import {CHANGE_CURRENT_PAGE, GET_MOVIE} from "../../ActionTypes/ActionTypes";
-import {changeCurrentPage} from "../../ActionCreators/ActionCreators";
-
+import {changeCurrentPageAC,getMovie} from "../../ActionCreators/ActionCreators";
+import {PaginationWithRedux} from "../pagination/Pagination";
 
 const MoviesList = ({movieList, getMovie, currentPage, changeCurrentPage,changeTheme}) => {
 
     useEffect(() => {
         getMovie(currentPage)
     }, [currentPage]);
-    console.log('tyt ', movieList)
+
     const pagination = [];
     for (let i = 1; i <= 50; i++) {
         pagination.push(i)
     }
     return (
         <>
-            <div className={`mx-auto  ${!changeTheme ? 'moviePage':'moviePage2'}`}>
+            <div className={`mx-auto mt-5  ${!changeTheme ? 'moviePage':'moviePage2'}`}>
                 <ToggleThemeWithRedux/>
-                <div className='block-pagination'>{pagination.map(el => <span className={'paginationPoint'} key={el}
-                                                 onClick={() => changeCurrentPage(el)}>{el}</span>)}</div>
+                {/*<div className='block-pagination'>{pagination.map(el => <span className={'paginationPoint'} key={el}*/}
+                {/*                                 onClick={() => changeCurrentPage(el)}>{el}</span>)}</div>*/}
+                <PaginationWithRedux/>
                 {movieList.length && movieList.map(el => <div key={el.id}>
                     <div className="card" style={{width: '18rem', height: '36rem', textAlign: 'center'}}>
                         <img src={`https://image.tmdb.org/t/p/w400/${el.poster_path}`} className="card-img-top card-img"
@@ -39,16 +39,6 @@ const MoviesList = ({movieList, getMovie, currentPage, changeCurrentPage,changeT
     )
 };
 
-
-const getMovie = (currentPage) => (dispatch) => {
-    console.log('currentPage', currentPage)
-    return (
-        fetch(`https://api.themoviedb.org/3/discover/movie?api_key=19eec3c1db6bc640e4777bf74bacacb0&page=${currentPage}`)
-            .then(resolve => resolve.json())
-            .then(json => dispatch({type: GET_MOVIE, payload: json}))
-    )
-};
-
 const mapStateToProps = (state) => {
     return {
         movieList: state.movieListReducer.movieList,
@@ -60,7 +50,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         getMovie: (currentPage) => dispatch(getMovie(currentPage)),
-        changeCurrentPage: (id) => dispatch(changeCurrentPage(id))
+        changeCurrentPage: (id) => dispatch(changeCurrentPageAC(id))
     }
 };
 

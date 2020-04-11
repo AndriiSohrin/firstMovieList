@@ -1,5 +1,31 @@
 .header {
     z-index: 999;
-    bottom: 88%;
+    /*bottom: 88%;*/
+/*height: 250px;*/
 
+
+
+}
+.header{
+    display: flex;
+    align-items: center;
+    /*justify-content: space-between;*/
+    /*height:80px;*/
+    background:lightcyan;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+.header2{
+    display: flex;
+    align-items: center;
+    /*justify-content: space-between;*/
+    /*height:80px;*/
+    background:#2D2D2D;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.mainInput{
+    width: 600px;
 }
