@@ -15,7 +15,7 @@ const BtnWithSortMenu = ({genresList, getGenres, onClickGenres}) => {
     }, []);
 
     return (
-        <div className='sort col-2'>
+        <div className='sort'>
             <button onClick={onIsOpen} className='btn-sort'>Категории</button>
             <div className={`${isOpen && 'menu-down'}`}>
 

@@ -2,12 +2,12 @@ import React, {useState} from "react";
 import {BtnWithSortMenuWithRedux} from "../btnWithSortMenu/btnWithSortMenu";
 import './header.css'
 import {connect} from "react-redux";
-import {CHANGE_MAIN_INPUT, MOVIE_SEARCH} from "../../ActionTypes/ActionTypes";
 import {movieSearch, onChangeMainInputAC} from "../../ActionCreators/ActionCreators";
+import {PaginationWithRedux} from "../pagination/Pagination";
 
 const Logo = () => {
     return (
-        <div className='col-2'>
+        <div>
             <img src='https://cdn.worldvectorlogo.com/logos/brothers-photography.svg' alt="#" style={{width: 200}}/>
         </div>
     )
@@ -17,7 +17,8 @@ const Header = ({valueMainInput, onChangeMainInput, movieSearch, changeTheme}) =
         onChangeMainInput(e.target.value)
     };
     return (
-        <div className={`header col-12 position-fixed ${!changeTheme ? 'header' : 'header2'}`}>
+        <div className={`col-12 ${!changeTheme ? 'header' : 'header2'}`}>
+
             <div>
                 <Logo/>
             </div>
@@ -33,7 +34,9 @@ const Header = ({valueMainInput, onChangeMainInput, movieSearch, changeTheme}) =
                        onChange={change}
                 />
             </div>
+            <PaginationWithRedux/>
             <BtnWithSortMenuWithRedux/>
+
 
         </div>
     )

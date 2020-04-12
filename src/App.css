@@ -3,21 +3,4 @@ margin-top: 80px;
 
 }
 
-.header{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height:80px;
-  background:lightcyan;
-}
-.header2{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height:80px;
-  background:#2D2D2D;
-}
 
-.mainInput{
-  width: 600px;
-}
